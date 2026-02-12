@@ -1,0 +1,42 @@
+[span_15](start_span)/* Element Selector[span_15](end_span) */
+body {
+font-family: Arial, sans-serif;
+line-height: 1.6;
+max-width: 800px;
+margin: auto;
+padding: 20px;
+}
+
+[span_16](start_span)/* Specificity Challenge[span_16](end_span) */
+h2 {
+color: black;
+}
+
+[span_17](start_span)/* Class Selector[span_17](end_span) */
+.section-title {
+color: blue;
+}
+
+[span_18](start_span)/* ID Selector[span_18](end_span) */
+#education {
+background-color: #f4f4f4;
+padding: 10px;
+}
+
+/* SPECIFICITY COMMENT:
+If I apply both 'h2' (Element) and '.section-title' (Class) to the same tag,
+the Class selector wins because it has a higher specificity score (0,0,1,0)
+[span_19](start_span)compared to the Element selector (0,0,0,1).[span_19](end_span)
+*/
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th, td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+
