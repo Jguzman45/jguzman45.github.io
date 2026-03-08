@@ -23,87 +23,62 @@ to my headers. The class selector 'won' because its specificity score is
 10 times higher than the element selector. In Chrome DevTools, the
 black color will appear crossed out.
 */
-/* Base Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+table {
+width: 100%;
+border-collapse: collapse;
 }
 
-/* General Styling */
-body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    line-height: 1.6;
+th, td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
 }
 
-/* Task 1: Flexbox Navigation */
+/* --- Task 1: Navigation --- */
 .navbar {
-    display: flex; /* [cite: 10] */
-    justify-content: space-between; /* Align logo left, links right [cite: 10] */
-    align-items: center; /* Vertical alignment [cite: 11] */
-    padding: 1rem 5%; /* Interactivity padding [cite: 12] */
-    background: #2c3e50;
-    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #222;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 20px; /* Modern spacing for flex items */
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s; /* Hover effect [cite: 12] */
-}
-
-.nav-links a:hover {
-    color: #3498db;
-}
-
-/* Task 2: The Grid Showcase */
-.projects-section {
-    padding: 2rem 5%;
-}
-
+/* --- Task 2: Grid Showcase --- */
 .projects-grid {
-    display: grid; /* [cite: 15] */
+    display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop [cite: 16] */
-    grid-gap: 30px; /* Consistent spacing [cite: 17] */
+    gap: 25px; /* Consistent spacing  */
 }
 
-.project-card {
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.project-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-/* Task 3: Responsive Media Queries */
-@media (max-width: 768px) { /* Breakpoint [cite: 21] */
+/* --- Task 3: Media Queries [cite: 21] --- */
+@media (max-width: 768px) {
+    /* Stack Nav Links Vertically  */
     .navbar {
-        flex-direction: column; /* Stack links vertically  */
+        flex-direction: column;
+        gap: 15px;
     }
-
+    
     .nav-links {
         flex-direction: column;
-        padding: 10px 0;
+        text-align: center;
     }
 
+    /* Collapse Grid to 1-Column  */
     .projects-grid {
-        grid-template-columns: 1fr; /* Collapse into 1-column layout  */
+        grid-template-columns: 1fr;
     }
 
-    body {
-        font-size: 14px; /* Adjust typography for mobile [cite: 23] */
+    /* Typography Adjustments  */
+    h2 {
+        font-size: 1.8rem;
+    }
+    p {
+        font-size: 1rem;
     }
 }
