@@ -34,51 +34,92 @@ padding: 8px;
 text-align: left;
 }
 
-/* --- Task 1: Navigation --- */
+/* --- Global Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* --- Task 1: Flexbox Navigation --- */
+/* Align logo left and links right [cite: 10] */
 .navbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background-color: #222;
+    justify-content: space-between; 
+    align-items: center; /* Vertical alignment [cite: 11] */
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: white;
+    /* Keeps nav at the top of the page */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .nav-links {
-    display: flex;
+    display: flex; /* Horizontal by default [cite: 10] */
     list-style: none;
-    gap: 20px; /* Modern spacing for flex items */
+    gap: 20px;
 }
 
-/* --- Task 2: Grid Showcase --- */
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: 0.3s; /* Hover effect requirement [cite: 12] */
+}
+
+.nav-links li a:hover {
+    color: #ffcc00;
+    background-color: #444;
+}
+
+/* --- Task 2: The Grid Showcase --- */
 .projects-grid {
-    display: grid;
+    display: grid; /* [cite: 15] */
     grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop [cite: 16] */
-    gap: 25px; /* Consistent spacing  */
+    grid-gap: 20px; /* Consistent spacing [cite: 17] */
+    padding: 40px;
 }
 
-/* --- Task 3: Media Queries [cite: 21] --- */
+.project-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+
+.project-card img {
+    width: 100%; /* Ensures image fits card  */
+    height: auto;
+}
+
+/* --- Task 3: Responsive Media Queries --- */
+/* Breakpoint set to 768px [cite: 21] */
 @media (max-width: 768px) {
-    /* Stack Nav Links Vertically  */
+    
+    /* Navigation links must stack vertically [cite: 22] */
     .navbar {
         flex-direction: column;
-        gap: 15px;
-    }
-    
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
     }
 
-    /* Collapse Grid to 1-Column  */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    /* 3-column grid collapses into a 1-column layout [cite: 22] */
     .projects-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Typography Adjustments  */
-    h2 {
-        font-size: 1.8rem;
-    }
-    p {
-        font-size: 1rem;
+    /* Adjust font sizes for mobile readability [cite: 23] */
+    body {
+        font-size: 14px;
     }
 }
